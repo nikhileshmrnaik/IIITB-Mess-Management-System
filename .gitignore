@@ -1,0 +1,27 @@
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Project-specific temporary files
+project-files.txt
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Root-level unused Node configuration
+/package.json
+/package-lock.json

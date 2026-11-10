@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | IIITB Mess</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <div class="brand-logo">IIITB</div>
+        <div>
+            <h2>Mess Management</h2>
+            <p>Student Portal</p>
+        </div>
+    </div>
+
+    <div class="topbar-right">
+        <span id="studentName">Student</span>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="welcome-section">
+        <div>
+            <p class="eyebrow">STUDENT PORTAL</p>
+            <h1>Welcome, <span id="welcomeName">Student</span>!</h1>
+            <p>View today's menu and manage your upcoming meals.</p>
+        </div>
+        <div class="date-box">
+            <span>SELECT BOOKING DATE</span>
+            <input type="date" id="bookingDate">
+        </div>
+    </section>
+
+    <div id="pageMessage" class="message" role="status"></div>
+
+    <section class="section">
+        <div class="section-heading">
+            <div>
+                <h2>Available Mess Menu</h2>
+                <p>Published meals for your selected date</p>
+            </div>
+            <button id="refreshBtn" class="secondary-btn">Refresh</button>
+        </div>
+
+        <div id="menuContainer" class="menu-grid">
+            <div class="loading">Loading menus...</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-heading">
+            <div>
+                <h2>My Meal Bookings</h2>
+                <p>View and manage your meal reservations</p>
+            </div>
+            <button id="historyRefreshBtn" class="secondary-btn">
+                Refresh Bookings
+            </button>
+        </div>
+
+        <div class="summary-grid">
+            <div class="summary-card">
+                <span>Upcoming Bookings</span>
+                <strong id="upcomingCount">0</strong>
+            </div>
+            <div class="summary-card">
+                <span>Cancelled Bookings</span>
+                <strong id="cancelledCount">0</strong>
+            </div>
+            <div class="summary-card">
+                <span>Total Bookings</span>
+                <strong id="totalCount">0</strong>
+            </div>
+        </div>
+
+        <div class="table-panel">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Meal</th>
+                            <th>Food Items</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingTableBody">
+                        <tr>
+                            <td colspan="5" class="empty">
+                                Loading your bookings...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        IIIT Bhubaneswar · Mess Management System
+    </footer>
+
+</main>
+
+<script src="/js/dashboard.js"></script>
+</body>
+</html>

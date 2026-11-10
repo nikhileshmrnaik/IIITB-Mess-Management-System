@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | IIITB Mess</title>
+
+    <link rel="stylesheet" href="/css/dashboard.css">
+
+    <style>
+        /* Admin Management Cards */
+
+        .management-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .management-card {
+            background: #ffffff;
+            border: 1px solid #e5eaf2;
+            border-radius: 14px;
+            padding: 25px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            min-height: 190px;
+            transition: transform 0.2s ease,
+                        box-shadow 0.2s ease;
+        }
+
+        .management-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
+        }
+
+        .management-card h3 {
+            color: #1e293b;
+            font-size: 21px;
+            margin: 0 0 12px;
+        }
+
+        .management-card p {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0 0 22px;
+            flex-grow: 1;
+        }
+
+        .management-card a {
+            display: inline-block;
+            width: fit-content;
+            padding: 10px 18px;
+            background: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .management-card a:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 900px) {
+            .management-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .management-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .management-card {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Navigation -->
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                IIITB
+            </div>
+
+            <div>
+                <h2>Mess Management</h2>
+                <p>Admin Portal</p>
+            </div>
+
+        </div>
+
+        <div class="topbar-right">
+
+            <span id="adminName">Administrator</span>
+
+            <button id="logoutBtn" class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+
+            <div>
+
+                <p class="eyebrow">
+                    ADMIN PORTAL
+                </p>
+
+                <h1>
+                    Welcome, <span id="adminNameWelcome">Admin</span>!
+                </h1>
+
+                <p>
+                    Manage mess operations, menus, bookings and student balances.
+                </p>
+
+            </div>
+
+            <div class="date-box">
+
+                <span>CURRENT DATE</span>
+
+                <strong id="currentDate">
+                    Loading...
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- Dashboard Statistics -->
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Dashboard Overview</h2>
+
+                    <p>
+                        Current mess activity and statistics
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="summary-card">
+
+                    <span>Total Students</span>
+
+                    <strong id="totalStudents">0</strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span>Breakfast Bookings</span>
+
+                    <strong id="breakfastCount">0</strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span>Lunch Bookings</span>
+
+                    <strong id="lunchCount">0</strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span>Dinner Bookings</span>
+
+                    <strong id="dinnerCount">0</strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Outstanding Balances -->
+        <!-- Existing admin.js dynamically inserts this section
+             immediately after .stats-grid. -->
+
+
+        <!-- Mess Management Section -->
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>Mess Management</h2>
+
+                    <p>
+                        Access and manage the main mess operations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="management-grid">
+
+
+                <!-- Menu Management Card -->
+                <div class="management-card">
+
+                    <h3>Menu Management</h3>
+
+                    <p>
+                        Add new food items, update existing menus,
+                        and delete meals for specific dates.
+                    </p>
+
+                    <a href="/admin/menu.html">
+                        Manage Menu
+                    </a>
+
+                </div>
+
+
+                <!-- Meal Bookings Card -->
+                <div class="management-card">
+
+                    <h3>Meal Bookings</h3>
+
+                    <p>
+                        View student meal reservations and check
+                        breakfast, lunch and dinner bookings.
+                    </p>
+
+                    <a href="/admin/bookings.html">
+                        View Bookings
+                    </a>
+
+                </div>
+
+
+                <!-- Booking Deadlines Card -->
+                <div class="management-card">
+
+                    <h3>Booking Deadlines</h3>
+
+                    <p>
+                        Set and manage booking and cancellation
+                        deadlines for each meal.
+                    </p>
+
+                    <a href="/admin/deadlines.html">
+                        Manage Deadlines
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+
+            IIIT Bhubaneswar · Mess Management System
+
+        </footer>
+
+    </main>
+
+
+    <!-- Existing Admin JavaScript -->
+    <script src="/js/admin.js"></script>
+
+</body>
+
+</html>
+

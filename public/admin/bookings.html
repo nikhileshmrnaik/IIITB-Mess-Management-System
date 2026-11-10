@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Bookings | IIITB Mess</title>
+    <link rel="stylesheet" href="/css/bookings.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div>
+            <h2>IIITB Mess Management</h2>
+            <p>Admin Panel</p>
+        </div>
+        <a href="/admin/dashboard.html" class="back-link">Dashboard</a>
+    </header>
+
+    <main class="container">
+        <div class="page-heading">
+            <div>
+                <h1>Meal Booking Management</h1>
+                <p>Manage booking deadlines and view student meal bookings.</p>
+            </div>
+        </div>
+
+        <section class="panel date-panel">
+            <label for="bookingDate">Select Booking Date</label>
+            <input type="date" id="bookingDate">
+            <button id="loadBookingsBtn">Load Bookings</button>
+        </section>
+
+        <section class="section">
+            <h2>Booking Deadlines</h2>
+            <p class="section-description">
+                Set the last date and time students can book or cancel each meal.
+            </p>
+
+            <div class="deadline-grid">
+                <div class="panel deadline-card">
+                    <h3>Breakfast</h3>
+                    <label for="breakfastDeadline">Deadline</label>
+                    <input type="datetime-local" id="breakfastDeadline">
+                    <button class="save-deadline" data-meal="breakfast">
+                        Save Deadline
+                    </button>
+                    <p id="breakfastStatus" class="status"></p>
+                </div>
+
+                <div class="panel deadline-card">
+                    <h3>Lunch</h3>
+                    <label for="lunchDeadline">Deadline</label>
+                    <input type="datetime-local" id="lunchDeadline">
+                    <button class="save-deadline" data-meal="lunch">
+                        Save Deadline
+                    </button>
+                    <p id="lunchStatus" class="status"></p>
+                </div>
+
+                <div class="panel deadline-card">
+                    <h3>Dinner</h3>
+                    <label for="dinnerDeadline">Deadline</label>
+                    <input type="datetime-local" id="dinnerDeadline">
+                    <button class="save-deadline" data-meal="dinner">
+                        Save Deadline
+                    </button>
+                    <p id="dinnerStatus" class="status"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Booking Summary</h2>
+
+            <div class="summary-grid">
+                <div class="panel summary-card">
+                    <h3>Breakfast</h3>
+                    <p id="breakfastCount">0</p>
+                    <span>Active bookings</span>
+                </div>
+
+                <div class="panel summary-card">
+                    <h3>Lunch</h3>
+                    <p id="lunchCount">0</p>
+                    <span>Active bookings</span>
+                </div>
+
+                <div class="panel summary-card">
+                    <h3>Dinner</h3>
+                    <p id="dinnerCount">0</p>
+                    <span>Active bookings</span>
+                </div>
+
+                <div class="panel summary-card total-card">
+                    <h3>Total</h3>
+                    <p id="totalCount">0</p>
+                    <span>All active bookings</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="booking-heading">
+                <div>
+                    <h2>Student Bookings</h2>
+                    <p class="section-description">
+                        View students who booked meals on the selected date.
+                    </p>
+                </div>
+
+                <select id="mealFilter">
+                    <option value="all">All Meals</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                </select>
+            </div>
+
+            <div class="panel table-panel">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Meal</th>
+                                <th>Booking Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookingTableBody">
+                            <tr>
+                                <td colspan="5" class="empty-message">
+                                    Select a date to load bookings.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <p id="pageMessage" class="page-message"></p>
+    </main>
+
+    <script src="/js/bookings.js"></script>
+</body>
+</html>

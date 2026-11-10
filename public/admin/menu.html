@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu Management | IIITB Mess</title>
+
+    <link rel="stylesheet" href="../css/menu.css">
+</head>
+
+<body>
+
+<div class="menu-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">M</div>
+            <div>
+                <h2>IIITB Mess</h2>
+                <span>Management Portal</span>
+            </div>
+        </div>
+
+        <p class="sidebar-label">MAIN MENU</p>
+
+        <nav class="sidebar-nav">
+            <a href="/admin/dashboard.html" class="nav-link">
+                ▦ Dashboard
+            </a>
+
+            <a href="#" class="nav-link active">
+                ☷ Menu Management
+            </a>
+
+            <a href="/admin/dashboard.html" class="nav-link">
+                ← Back to Dashboard
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button id="logoutBtn" class="logout-btn">
+                ⇥ Logout
+            </button>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Menu Management</h1>
+                <p>Manage daily meals for IIIT Bhubaneswar</p>
+            </div>
+
+            <div class="admin-label">
+                Administrator Portal
+            </div>
+        </header>
+
+
+        <!-- PAGE INTRO -->
+        <section class="welcome-section">
+            <div>
+                <h2>Manage Your Mess Menu</h2>
+                <p>Add, update and organize daily meal schedules.</p>
+            </div>
+
+            <div id="todayDate" class="date-display"></div>
+        </section>
+
+
+        <!-- STATUS MESSAGE -->
+        <div id="messageBox" class="message-box" hidden></div>
+
+
+        <!-- MENU FORM -->
+        <section class="content-card">
+
+            <div class="card-header">
+                <div>
+                    <h3 id="formTitle">Add New Menu</h3>
+                    <p>Enter the details of the meal.</p>
+                </div>
+            </div>
+
+            <form id="menuForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="menuDate">Menu Date</label>
+                        <input type="date" id="menuDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mealType">Meal Type</label>
+
+                        <select id="mealType" required>
+                            <option value="">Select meal</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="foodItems">
+                            Food Items
+                        </label>
+
+                        <textarea
+                            id="foodItems"
+                            rows="4"
+                            placeholder="Enter food items separated by commas. Example: Idli, Sambar, Chutney, Tea"
+                            required
+                        ></textarea>
+
+                        <small>
+                            Separate each food item using a comma.
+                        </small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="description">
+                            Description (Optional)
+                        </label>
+
+                        <input
+                            type="text"
+                            id="description"
+                            maxlength="500"
+                            placeholder="Enter a short description"
+                        >
+                    </div>
+
+                    <div class="form-group full-width publish-option">
+                        <label>
+                            <input
+                                type="checkbox"
+                                id="isPublished"
+                                checked
+                            >
+                            Publish this menu for students
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button type="submit" id="saveBtn" class="primary-btn">
+                        Save Menu
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancelEditBtn"
+                        class="secondary-btn"
+                        hidden
+                    >
+                        Cancel Edit
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- MENU LIST -->
+        <section class="content-card menu-list-card">
+
+            <div class="card-header menu-list-header">
+                <div>
+                    <h3>Existing Menus</h3>
+                    <p>View and manage your scheduled meals.</p>
+                </div>
+
+                <div class="filter-box">
+                    <input type="date" id="filterDate">
+
+                    <button type="button" id="filterBtn">
+                        Filter
+                    </button>
+
+                    <button type="button" id="clearFilterBtn">
+                        All Menus
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Meal</th>
+                            <th>Food Items</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="menuTableBody">
+                        <tr>
+                            <td colspan="6" class="loading">
+                                Loading menus...
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p id="menuCount" class="menu-count">
+                Total menus: 0
+            </p>
+
+        </section>
+
+
+        <footer>
+            © 2026 IIIT Bhubaneswar | Mess Management System
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="../js/menu.js"></script>
+
+</body>
+</html>

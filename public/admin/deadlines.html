@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Deadlines | IIITB Mess</title>
+    <link rel="stylesheet" href="../css/deadlines.css">
+</head>
+<body>
+
+<div class="page-container">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">M</div>
+            <div>
+                <h2>IIITB Mess</h2>
+                <span>Management Portal</span>
+            </div>
+        </div>
+
+        <p class="sidebar-label">MAIN MENU</p>
+
+        <nav class="sidebar-nav">
+            <a href="/admin/dashboard.html" class="nav-link">
+                Dashboard
+            </a>
+            <a href="/admin/menu.html" class="nav-link">
+                Menu Management
+            </a>
+            <a href="/admin/bookings.html" class="nav-link">
+                Meal Bookings
+            </a>
+            <a href="/admin/deadlines.html" class="nav-link active">
+                Booking Deadlines
+            </a>
+        </nav>
+
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Meal Booking Deadlines</h1>
+                <p>Configure booking and cancellation deadlines.</p>
+            </div>
+            <a href="/admin/dashboard.html">Back to Dashboard</a>
+        </header>
+
+        <div id="messageBox" class="message-box" hidden></div>
+
+        <section class="content-card">
+            <h2>Set Meal Deadline</h2>
+            <p>Choose the meal and date for which bookings should close.</p>
+
+            <form id="deadlineForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="bookingDate">Booking Date</label>
+                        <input type="date" id="bookingDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mealType">Meal Type</label>
+                        <select id="mealType" required>
+                            <option value="">Select meal</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="deadlineAt">Booking Deadline</label>
+                        <input type="datetime-local" id="deadlineAt" required>
+                        <small>Enter the date and time until which students can book or cancel this meal.</small>
+                    </div>
+
+                </div>
+
+                <button type="submit" id="saveBtn">Save Deadline</button>
+
+            </form>
+        </section>
+
+        <section class="content-card">
+            <div class="card-header">
+                <div>
+                    <h2>Configured Deadlines</h2>
+                    <p>View all existing meal booking deadlines.</p>
+                </div>
+
+                <button type="button" id="refreshBtn">Refresh</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking Date</th>
+                            <th>Meal</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody id="deadlineTableBody">
+                        <tr>
+                            <td colspan="3">Loading deadlines...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="deadlineCount">Total deadlines: 0</p>
+        </section>
+
+    </main>
+</div>
+
+<script src="../js/deadlines.js"></script>
+</body>
+</html>

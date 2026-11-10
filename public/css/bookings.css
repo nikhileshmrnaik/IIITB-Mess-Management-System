@@ -1,0 +1,234 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fa;
+    color: #263238;
+}
+
+.topbar {
+    background: #172554;
+    color: white;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar h2 {
+    font-size: 21px;
+}
+
+.topbar p {
+    margin-top: 5px;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.back-link {
+    color: white;
+    text-decoration: none;
+    background: #334b80;
+    padding: 10px 16px;
+    border-radius: 6px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.page-heading {
+    margin-bottom: 25px;
+}
+
+.page-heading h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.page-heading p,
+.section-description {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.section {
+    margin-top: 30px;
+}
+
+.section h2 {
+    margin-bottom: 8px;
+    font-size: 21px;
+}
+
+.panel {
+    background: white;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.date-panel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+input,
+select {
+    padding: 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+}
+
+button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 11px 17px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.deadline-grid,
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.deadline-card h3,
+.summary-card h3 {
+    margin-bottom: 18px;
+}
+
+.deadline-card input {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.deadline-card button {
+    width: 100%;
+}
+
+.status {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.summary-card {
+    text-align: center;
+}
+
+.summary-card p {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2563eb;
+    margin-bottom: 7px;
+}
+
+.summary-card span {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.total-card {
+    border: 1px solid #2563eb;
+}
+
+.booking-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.table-panel {
+    padding: 0;
+    overflow: hidden;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+th {
+    background: #f8fafc;
+    color: #475569;
+}
+
+.status-booked {
+    color: #15803d;
+    font-weight: bold;
+}
+
+.status-cancelled {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 30px;
+    color: #64748b;
+}
+
+.page-message {
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+@media (max-width: 800px) {
+    .deadline-grid,
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .container {
+        width: 94%;
+    }
+}
